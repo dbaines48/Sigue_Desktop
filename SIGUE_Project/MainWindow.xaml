@@ -1,0 +1,146 @@
+﻿<Controls:MetroWindow x:Class="SIGUE_Project.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" Icon="Assets/logo.ico"
+        xmlns:Controls="clr-namespace:MahApps.Metro.Controls;assembly=MahApps.Metro" ShowIconOnTitleBar="False"
+        Title="S.I.G.U.E. - Acceso al Sistema" Height="540" Width="960" WindowStartupLocation="CenterScreen" ResizeMode="CanMinimize"
+        BorderBrush="{DynamicResource AccentColorBrush}" BorderThickness="3" Loaded="MetroWindow_Loaded">
+    <Controls:MetroWindow.Resources>
+        <DropShadowEffect x:Key="TextWithShadow" ShadowDepth="1" Direction="0" Color="Black" Opacity="0.5" BlurRadius="4"/>
+        <DropShadowEffect x:Key="TextWithShadow2" ShadowDepth="2" Direction="90" Color="#121212" Opacity="0.5" BlurRadius="4"/>
+        <Style x:Key="TextBlockStyle" TargetType="TextBlock">
+            <Setter Property="Foreground" Value="#008080"/> <!--#e5e5e5   #607d8b-->
+            <Setter Property="FontFamily" Value="Segoe UI"/>
+            <Setter Property="VerticalAlignment" Value="Center"/>
+            <Setter Property="FontWeight" Value="Light"/>
+            <Setter Property="Effect" Value="{StaticResource TextWithShadow}"/>
+        </Style>
+        <Style x:Key="TextStyle" TargetType="TextBox">
+            <Setter Property="VerticalContentAlignment" Value="Center"/>
+            <Setter Property="HorizontalContentAlignment" Value="Center"/>
+            <Setter Property="FontFamily" Value="Segoe UI"/>
+            <Setter Property="FontSize" Value="15"/>
+            <Setter Property="FontWeight" Value="Light"/>
+            <Setter Property="Foreground" Value="#4c4c4c"/>
+            <Setter Property="Background" Value="#ededed"/>
+            <Setter Property="Margin" Value="50,2"/>
+            <Setter Property="BorderBrush" Value="{DynamicResource AccentColorBrush}"/>
+            <Setter Property="BorderThickness" Value="0"/>
+            <Setter Property="Height" Value="30"/>
+        </Style>
+        <Style x:Key="PassStyle" TargetType="PasswordBox">
+            <Setter Property="VerticalContentAlignment" Value="Center"/>
+            <Setter Property="HorizontalContentAlignment" Value="Center"/>
+            <Setter Property="FontFamily" Value="Segoe UI"/>
+            <Setter Property="FontWeight" Value="Light"/>
+            <Setter Property="FontSize" Value="15"/>
+            <Setter Property="Foreground" Value="#4c4c4c"/>
+            <Setter Property="Background" Value="#ededed"/>
+            <Setter Property="Margin" Value="50,2"/>
+            <Setter Property="BorderBrush" Value="{DynamicResource AccentColorBrush}"/>
+            <Setter Property="BorderThickness" Value="0"/>
+            <Setter Property="Height" Value="30"/>
+        </Style>
+        <Style x:Key="ButtonStyle" TargetType="Button">
+            <Setter Property="BorderBrush" Value="{DynamicResource AccentColorBrush}"/>
+            <Setter Property="BorderThickness" Value="1"/>
+            <Setter Property="Background" Value="#d2d2d2"/>
+            <Setter Property="FontFamily" Value="Segoe UI"/>
+            <Setter Property="FontSize" Value="20"/>
+            <Setter Property="Foreground" Value="#2f4f4f"/>
+            <Setter Property="FontWeight" Value="Light"/>
+        </Style>
+    </Controls:MetroWindow.Resources>
+    <Controls:MetroWindow.Background>
+        <ImageBrush ImageSource="Assets/Fondo.png"/>
+    </Controls:MetroWindow.Background>
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="20"/>
+            <RowDefinition Height="70"/>
+        </Grid.RowDefinitions>
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="0.55*"/>
+                <ColumnDefinition Width="0.45*"/>
+            </Grid.ColumnDefinitions>
+            <!--Login Section-->
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="30"/>
+                    <RowDefinition Height="1.3*"/>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="1.4*"/>
+                    <RowDefinition Height="40"/>
+                    <RowDefinition Height="20"/>
+                </Grid.RowDefinitions>
+                <TextBlock Grid.Row="1" Text="INICIO DE SESIÓN DEL SISTEMA" TextAlignment="Center" FontSize="25" Style="{StaticResource TextBlockStyle}"/>
+                <TextBlock Grid.Row="2" Text="Por favor ingrese sus credenciales para acceder" Style="{StaticResource TextBlockStyle}" FontSize="15" TextAlignment="Center" />
+                <TextBlock Grid.Row="3" Text="Código de Institución:" Margin="50,0" Style="{StaticResource TextBlockStyle}" FontSize="18"/>
+                <TextBox Grid.Row="4" Style="{StaticResource TextStyle}" x:Name="txtSchoolCode" TextChanged="txtSchoolCode_TextChanged">
+                    <TextBox.Resources>
+                        <Style TargetType="{x:Type Border}">
+                            <Setter Property="CornerRadius" Value="6"/>
+                        </Style>
+                    </TextBox.Resources>
+                </TextBox>
+                <TextBlock Grid.Row="5" Text="Nombre de Usuario:" Margin="50,0" Style="{StaticResource TextBlockStyle}" FontSize="18"/>
+                <TextBox Grid.Row="6" Style="{StaticResource TextStyle}" x:Name="txtUsername" TextChanged="TheTextChanged">
+                    <TextBox.Resources>
+                        <Style TargetType="{x:Type Border}">
+                            <Setter Property="CornerRadius" Value="6"/>
+                        </Style>
+                    </TextBox.Resources>
+                </TextBox>
+                <TextBlock Grid.Row="7" Text="Contraseña:" Margin="50,0" Style="{StaticResource TextBlockStyle}" FontSize="18"/>
+                <PasswordBox Grid.Row="8" Style="{StaticResource PassStyle}" x:Name="txtPassword" PasswordChanged="ThePasswordChanged">
+                    <PasswordBox.Resources>
+                        <Style TargetType="{x:Type Border}">
+                            <Setter Property="CornerRadius" Value="6"/>
+                        </Style>
+                    </PasswordBox.Resources>
+                </PasswordBox>
+                <Button Grid.Row="9" x:Name="AccessButton" Style="{StaticResource ButtonStyle}" Width="200" Height="33" Margin="0,5" Click="Button_Click">
+                    <Button.Content>INGRESAR</Button.Content>
+                    <Button.Resources>
+                        <Style TargetType="{x:Type Border}">
+                            <Setter Property="CornerRadius" Value="6"/>
+                        </Style>
+                    </Button.Resources>
+                </Button>
+                <Controls:ProgressRing Grid.Row="10" Height="35" Width="35" x:Name="ProgRing" Foreground="{DynamicResource AccentColorBrush}"/>
+            </Grid>
+        </Grid>
+        <Grid Grid.Row="1">
+            <Grid.Background>
+                <LinearGradientBrush StartPoint="0,0" EndPoint="1,1">
+                    <GradientStop Color="Gray" Offset="0"/>
+                    <GradientStop Color="DarkGray" Offset="1.0"/>
+                </LinearGradientBrush>
+            </Grid.Background>
+        </Grid>
+        <Grid Grid.Row="2" Background="#D8E0E2">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="5*"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+            <StackPanel Orientation="Vertical" VerticalAlignment="Center">
+                <TextBlock Text="Sistema Institucional para Gestión Unificada Estudiantil" Foreground="Black" FontFamily="Segoe UI" FontSize="13" Margin="10,0" FontWeight="Light" FontStyle="Italic" Effect="{StaticResource TextWithShadow2}"/>
+                <TextBlock Text="Desarrollado por: " Foreground="Black" FontFamily="Segoe UI" FontSize="11" Margin="10,0" FontWeight="Light" FontStyle="Italic" Effect="{StaticResource TextWithShadow2}"/>
+                <TextBlock Text="Proyecto I+D - Diseño del Software II (2015)" Foreground="Black" FontFamily="Segoe UI" FontSize="11" Margin="10,0" FontWeight="Light" FontStyle="Italic" Effect="{StaticResource TextWithShadow2}"/>
+            </StackPanel>
+            <Rectangle Grid.Column="1" Height="60" Width="150" Grid.ColumnSpan="2" Margin="0,0,122,10">
+                <Rectangle.Fill>
+                    <ImageBrush ImageSource="Assets/Uninorte.png"/>
+                </Rectangle.Fill>
+            </Rectangle>
+        </Grid>
+    </Grid>
+</Controls:MetroWindow>
