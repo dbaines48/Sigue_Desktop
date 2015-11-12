@@ -1,1 +1,0 @@
-# SIGUE_DESKTOP #

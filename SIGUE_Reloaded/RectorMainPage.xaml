@@ -1,0 +1,284 @@
+﻿<Controls:MetroWindow x:Class="SIGUE_Reloaded.RectorMainPage"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:Controls="clr-namespace:MahApps.Metro.Controls;assembly=MahApps.Metro"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" WindowStartupLocation="CenterScreen" Loaded="MetroWindow_Loaded"
+        Title="SIGUE - Panel de Peticiones de Admisión" Height="700" Width="1280" MinHeight="600" MinWidth="900" Background="#e9e9e9"
+        Icon="Assets/logo.ico" ShowIconOnTitleBar="False" BorderBrush="{DynamicResource AccentColorBrush}" BorderThickness="2">
+    <Controls:MetroWindow.Resources>
+        <Style x:Key="ApplicationTbkStyleST" TargetType="TextBlock">
+            <Setter Property="TextAlignment" Value="Center"/>
+            <Setter Property="VerticalAlignment" Value="Center"/>
+            <Setter Property="Foreground" Value="{DynamicResource AccentColorBrush}"/>
+            <Setter Property="FontSize" Value="15"/>
+            <Setter Property="Margin" Value="10,0"/>
+        </Style>
+        <Style x:Key="ApplicationTbkStyleT" TargetType="TextBlock">
+            <Setter Property="TextAlignment" Value="Center"/>
+            <Setter Property="VerticalAlignment" Value="Center"/>
+            <Setter Property="Foreground" Value="{DynamicResource AccentColorBrush}"/>
+            <Setter Property="FontSize" Value="20"/>
+            <Setter Property="Margin" Value="10"/>
+        </Style>
+        <Style x:Key="ApplicationTbx" TargetType="TextBox">
+            <Setter Property="TextAlignment" Value="Center"/>
+            <Setter Property="VerticalAlignment" Value="Center"/>
+            <Setter Property="FontSize" Value="18"/>
+            <Setter Property="Margin" Value="10,0"/>
+            <Setter Property="IsEnabled" Value="False"/>
+            <Setter Property="VerticalContentAlignment" Value="Center"/>
+            <Setter Property="Background" Value="#d3d3d3"/>
+        </Style>
+        <Style x:Key="borderCorner" TargetType="{x:Type Border}">
+            <Setter Property="CornerRadius" Value="6"/>
+        </Style>
+    </Controls:MetroWindow.Resources>
+    <Controls:MetroWindow.RightWindowCommands>
+        <Controls:WindowCommands>
+            <Button x:Name="LogoutButton" Click="LogoutButton_Click">Cerrar Sesión</Button>
+        </Controls:WindowCommands>
+    </Controls:MetroWindow.RightWindowCommands>
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="150"/>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+        <Grid Background="#0c0c0c" x:Name="SideMenu">
+            <Grid.Resources>
+                <Style TargetType="{x:Type Border}">
+                    <Setter Property="BorderBrush" Value="{DynamicResource AccentColorBrush}"/>
+                    <Setter Property="BorderThickness" Value="1"/>
+                </Style>
+            </Grid.Resources>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="90"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
+            <!--Logo de S.I.G.U.E.-->
+            <Grid Grid.Row="0">
+                <StackPanel x:Name="LogoStack" Orientation="Vertical" VerticalAlignment="Center" Cursor="Hand" Background="{DynamicResource AccentColorBrush}">
+                    <Rectangle Height="50" Width="50">
+                        <Rectangle.Fill>
+                            <ImageBrush ImageSource="Assets/logowhite.png"/>
+                        </Rectangle.Fill>
+                    </Rectangle>
+                    <TextBlock Text="S.I.G.U.E." TextAlignment="Center" Foreground="White" FontFamily="Segoe UI" FontWeight="Light" FontSize="15"/>
+                </StackPanel>
+            </Grid>
+        </Grid>
+        <!-- Opciones -->
+        <Grid Grid.Column="1">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="0.4*"/>
+                <ColumnDefinition Width="0.6*"/>
+            </Grid.ColumnDefinitions>
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="40"/>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="50"/>
+                </Grid.RowDefinitions>
+                <TextBlock Text="Solicitudes de Admisión o Transferencia" Style="{StaticResource ApplicationTbkStyleT}" FontSize="21"/>
+                <DataGrid Margin="10" x:Name="RequestsGrid" Grid.Row="1" Background="Transparent" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" MouseDoubleClick="RequestsGrid_MouseDoubleClick"/>
+                <Button Grid.Row="2" Margin="10" Width="200" Background="{DynamicResource AccentColorBrush}" Foreground="#e5e5e5" VerticalContentAlignment="Center" Click="Button_Click">ACTUALIZAR</Button>
+            </Grid>
+            <Border Grid.Column="1" BorderBrush="#bdbdbd" BorderThickness="1">
+                <ScrollViewer CanContentScroll="True" HorizontalScrollBarVisibility="Auto">
+                    <Grid Margin="10" Background="#fefefe">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="*"/>
+                        </Grid.ColumnDefinitions>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="40"/>
+                            <RowDefinition Height="Auto"/>
+                            <RowDefinition Height="Auto"/>
+                            <RowDefinition Height="Auto"/>
+                            <RowDefinition Height="Auto"/>
+                            <RowDefinition Height="Auto"/>
+                            <RowDefinition Height="Auto"/>
+                            <RowDefinition Height="Auto"/>
+                            <RowDefinition Height="Auto"/>
+                            <RowDefinition Height="Auto"/>
+                            <RowDefinition Height="Auto"/>
+                            <RowDefinition Height="Auto"/>
+                            <RowDefinition Height="Auto"/>
+                            <RowDefinition Height="Auto"/>
+                            <RowDefinition Height="Auto"/>
+                            <RowDefinition Height="Auto"/>
+                            <RowDefinition Height="Auto"/>
+                            <RowDefinition Height="Auto"/>
+                            <RowDefinition Height="Auto"/>
+                            <RowDefinition Height="Auto"/>
+                            <RowDefinition Height="Auto"/>
+                            <RowDefinition Height="Auto"/>
+                            <RowDefinition Height="Auto"/>
+                            <RowDefinition Height="Auto"/>
+                            <RowDefinition Height="Auto"/>
+                            <RowDefinition Height="Auto"/>
+                            <RowDefinition Height="Auto"/>
+                            <RowDefinition Height="Auto"/>
+                            <RowDefinition Height="Auto"/>
+                            <RowDefinition Height="Auto"/>
+                            <RowDefinition Height="Auto"/>
+                            <RowDefinition Height="Auto"/>
+                            <RowDefinition Height="Auto"/>
+                            <RowDefinition Height="Auto"/>
+                            <RowDefinition Height="Auto"/>
+                            <RowDefinition Height="Auto"/>
+                            <RowDefinition Height="Auto"/>
+                            <RowDefinition Height="Auto"/>
+                            <RowDefinition Height="Auto"/>
+                            <RowDefinition Height="Auto"/>
+                            <RowDefinition Height="Auto"/>
+                            <RowDefinition Height="Auto"/>
+                            <RowDefinition Height="Auto"/>
+                            <RowDefinition Height="Auto"/>
+                            <RowDefinition Height="Auto"/>
+                            <RowDefinition Height="Auto"/>
+                            <RowDefinition Height="Auto"/>
+                            <RowDefinition Height="Auto"/>
+                            <RowDefinition Height="Auto"/>
+                            <RowDefinition Height="Auto"/>
+                            <RowDefinition Height="Auto"/>
+                            <RowDefinition Height="Auto"/>
+                            <RowDefinition Height="Auto"/>
+                            <RowDefinition Height="Auto"/>
+                            <RowDefinition Height="Auto"/>
+                            <RowDefinition Height="Auto"/>
+                            <RowDefinition Height="Auto"/>
+                            <RowDefinition Height="Auto"/>
+                            <RowDefinition Height="Auto"/>
+                            <RowDefinition Height="Auto"/>
+                            <RowDefinition Height="Auto"/>
+                            <RowDefinition Height="Auto"/>
+                            <RowDefinition Height="Auto"/>
+                            <RowDefinition Height="Auto"/>
+                            <RowDefinition Height="Auto"/>
+                            <RowDefinition Height="Auto"/>
+                            <RowDefinition Height="Auto"/>
+                            <RowDefinition Height="Auto"/>
+                            <RowDefinition Height="Auto"/>
+                            <RowDefinition Height="Auto"/>
+                            <RowDefinition Height="Auto"/>
+                            <RowDefinition Height="Auto"/>
+                            <RowDefinition Height="Auto"/>
+                            <RowDefinition Height="Auto"/>
+                            <RowDefinition Height="Auto"/>
+                            <RowDefinition Height="Auto"/>
+                            <RowDefinition Height="Auto"/>
+                            <RowDefinition Height="Auto"/>
+                            <RowDefinition Height="Auto"/>
+                            <RowDefinition Height="Auto"/>
+                            <RowDefinition Height="Auto"/>
+                        </Grid.RowDefinitions>
+                        
+                        <TextBlock Grid.ColumnSpan="2" Text="Datos de Aplicación de Estudiante" VerticalAlignment="Center" Foreground="{DynamicResource AccentColorBrush}" FontFamily="Segoe UI" TextAlignment="Center" FontSize="25"/>
+                        
+                        <TextBlock Grid.ColumnSpan="2" Text="Datos Personales" VerticalAlignment="Center" TextAlignment="Center" Foreground="{DynamicResource AccentColorBrush}" Grid.Row="1" FontSize="20"/>
+                        
+                        <TextBlock Grid.Row="3" Text="Primer Apellido" Style="{StaticResource ApplicationTbkStyleST}"/>
+                        <TextBlock Grid.Row="3" Grid.Column="1" Text="Segundo Apellido" Style="{StaticResource ApplicationTbkStyleST}" />
+                        <TextBox x:Name="apellido1_est" Style="{StaticResource ApplicationTbx}" Grid.Row="4"/>
+                        <TextBox x:Name="apellido2_est" Style="{StaticResource ApplicationTbx}" Grid.Row="4" Grid.Column="1"/>
+                        <TextBlock Grid.Row="5" Style="{StaticResource ApplicationTbkStyleST}" Text="Nombres" Grid.ColumnSpan="2"/>
+                        <TextBox x:Name="nombres_est" Style="{StaticResource ApplicationTbx}" Grid.Row="6" Grid.ColumnSpan="2"/>
+                        <TextBlock Grid.Row="7" Text="Tipo de Documento" Style="{StaticResource ApplicationTbkStyleST}"/>
+                        <TextBlock Grid.Row="7" Grid.Column="1" Text="Número de Documento" Style="{StaticResource ApplicationTbkStyleST}" />
+                        <TextBox x:Name="tipo_doc_est" Style="{StaticResource ApplicationTbx}" Grid.Row="8"/>
+                        <TextBox x:Name="numero_doc_est" Style="{StaticResource ApplicationTbx}" Grid.Row="8" Grid.Column="1"/>
+                        <TextBlock Grid.Row="9" Text="Género" Style="{StaticResource ApplicationTbkStyleST}"/>
+                        <TextBlock Grid.Row="9" Grid.Column="1" Text="Fecha de Nacimiento" Style="{StaticResource ApplicationTbkStyleST}" />
+                        <TextBox x:Name="genero_est" Style="{StaticResource ApplicationTbx}" Grid.Row="10"/>
+                        <TextBox x:Name="nacimiento_est" Style="{StaticResource ApplicationTbx}" Grid.Row="10" Grid.Column="1"/>
+                        
+                        <TextBlock Text="Información Académica" Style="{StaticResource ApplicationTbkStyleT}" Grid.ColumnSpan="2" Grid.Row="11"/>
+                        
+                        <TextBlock Grid.Row="12" Text="Grado al que aspira Entrar" Style="{StaticResource ApplicationTbkStyleST}"/>
+                        <TextBlock Grid.Row="12" Grid.Column="1" Text="Último Grado Cursado" Style="{StaticResource ApplicationTbkStyleST}" />
+                        <TextBox x:Name="grado_entrar_est" Style="{StaticResource ApplicationTbx}" Grid.Row="13"/>
+                        <TextBox x:Name="grado_viene_est" Style="{StaticResource ApplicationTbx}" Grid.Row="13" Grid.Column="1"/>
+                        <TextBlock Grid.Row="14" Style="{StaticResource ApplicationTbkStyleST}" Text="Nombre de la Institución de donde Viene" Grid.ColumnSpan="2"/>
+                        <TextBox x:Name="inst_viene_est" Style="{StaticResource ApplicationTbx}" Grid.Row="15" Grid.ColumnSpan="2"/>
+                        
+                        <TextBlock Text="Datos Personales de la Madre" Style="{StaticResource ApplicationTbkStyleT}" Grid.ColumnSpan="2" Grid.Row="16"/>
+
+                        <TextBlock Grid.Row="17" Text="Primer Apellido" Style="{StaticResource ApplicationTbkStyleST}"/>
+                        <TextBlock Grid.Row="17" Grid.Column="1" Text="Segundo Apellido" Style="{StaticResource ApplicationTbkStyleST}" />
+                        <TextBox x:Name="apellido1_madre" Style="{StaticResource ApplicationTbx}" Grid.Row="18"/>
+                        <TextBox x:Name="apellido2_madre" Style="{StaticResource ApplicationTbx}" Grid.Row="18" Grid.Column="1"/>
+                        <TextBlock Grid.Row="19" Style="{StaticResource ApplicationTbkStyleST}" Text="Nombres" Grid.ColumnSpan="2"/>
+                        <TextBox x:Name="nombres_madre" Style="{StaticResource ApplicationTbx}" Grid.Row="20" Grid.ColumnSpan="2"/>
+                        <TextBlock Grid.Row="21" Text="Tipo de Documento" Style="{StaticResource ApplicationTbkStyleST}"/>
+                        <TextBlock Grid.Row="21" Grid.Column="1" Text="Número de Documento" Style="{StaticResource ApplicationTbkStyleST}" />
+                        <TextBox x:Name="tipo_doc_madre" Style="{StaticResource ApplicationTbx}" Grid.Row="22"/>
+                        <TextBox x:Name="numero_doc_madre" Style="{StaticResource ApplicationTbx}" Grid.Row="22" Grid.Column="1"/>
+                        <TextBlock Grid.Row="23" Text="Teléfono" Style="{StaticResource ApplicationTbkStyleST}"/>
+                        <TextBlock Grid.Row="23" Grid.Column="1" Text="Celular" Style="{StaticResource ApplicationTbkStyleST}" />
+                        <TextBox x:Name="tel_madre" Style="{StaticResource ApplicationTbx}" Grid.Row="24"/>
+                        <TextBox x:Name="cel_madre" Style="{StaticResource ApplicationTbx}" Grid.Row="24" Grid.Column="1"/>
+                        <TextBlock Grid.Row="25" Style="{StaticResource ApplicationTbkStyleST}" Text="Correo Electrónico" Grid.ColumnSpan="2"/>
+                        <TextBox x:Name="email_madre" Style="{StaticResource ApplicationTbx}" Grid.Row="26" Grid.ColumnSpan="2"/>
+
+                        <TextBlock Text="Datos Personales del Padre" Style="{StaticResource ApplicationTbkStyleT}" Grid.ColumnSpan="2" Grid.Row="27"/>
+
+                        <TextBlock Grid.Row="28" Text="Primer Apellido" Style="{StaticResource ApplicationTbkStyleST}"/>
+                        <TextBlock Grid.Row="28" Grid.Column="1" Text="Segundo Apellido" Style="{StaticResource ApplicationTbkStyleST}" />
+                        <TextBox x:Name="apellido1_padre" Style="{StaticResource ApplicationTbx}" Grid.Row="29"/>
+                        <TextBox x:Name="apellido2_padre" Style="{StaticResource ApplicationTbx}" Grid.Row="29" Grid.Column="1"/>
+                        <TextBlock Grid.Row="30" Style="{StaticResource ApplicationTbkStyleST}" Text="Nombres" Grid.ColumnSpan="2"/>
+                        <TextBox x:Name="nombres_padre" Style="{StaticResource ApplicationTbx}" Grid.Row="31" Grid.ColumnSpan="2"/>
+                        <TextBlock Grid.Row="32" Text="Tipo de Documento" Style="{StaticResource ApplicationTbkStyleST}"/>
+                        <TextBlock Grid.Row="32" Grid.Column="1" Text="Número de Documento" Style="{StaticResource ApplicationTbkStyleST}" />
+                        <TextBox x:Name="tipo_doc_padre" Style="{StaticResource ApplicationTbx}" Grid.Row="33"/>
+                        <TextBox x:Name="numero_doc_padre" Style="{StaticResource ApplicationTbx}" Grid.Row="33" Grid.Column="1"/>
+                        <TextBlock Grid.Row="34" Text="Teléfono" Style="{StaticResource ApplicationTbkStyleST}"/>
+                        <TextBlock Grid.Row="34" Grid.Column="1" Text="Celular" Style="{StaticResource ApplicationTbkStyleST}" />
+                        <TextBox x:Name="tel_padre" Style="{StaticResource ApplicationTbx}" Grid.Row="35"/>
+                        <TextBox x:Name="cel_padre" Style="{StaticResource ApplicationTbx}" Grid.Row="35" Grid.Column="1"/>
+                        <TextBlock Grid.Row="36" Style="{StaticResource ApplicationTbkStyleST}" Text="Correo Electrónico" Grid.ColumnSpan="2"/>
+                        <TextBox x:Name="email_padre" Style="{StaticResource ApplicationTbx}" Grid.Row="37" Grid.ColumnSpan="2"/>
+
+                        <TextBlock Text="Información del Acudiente o Responsable" Style="{StaticResource ApplicationTbkStyleT}" Grid.ColumnSpan="2" Grid.Row="38"/>
+
+                        <TextBlock Grid.Row="39" Text="Primer Apellido" Style="{StaticResource ApplicationTbkStyleST}"/>
+                        <TextBlock Grid.Row="39" Grid.Column="1" Text="Segundo Apellido" Style="{StaticResource ApplicationTbkStyleST}" />
+                        <TextBox x:Name="apellido1_acud" Style="{StaticResource ApplicationTbx}" Grid.Row="40"/>
+                        <TextBox x:Name="apellido2_acud" Style="{StaticResource ApplicationTbx}" Grid.Row="40" Grid.Column="1"/>
+                        <TextBlock Grid.Row="41" Style="{StaticResource ApplicationTbkStyleST}" Text="Nombres" Grid.ColumnSpan="2"/>
+                        <TextBox x:Name="nombres_acud" Style="{StaticResource ApplicationTbx}" Grid.Row="42" Grid.ColumnSpan="2"/>
+                        <TextBlock Grid.Row="43" Text="Tipo de Documento" Style="{StaticResource ApplicationTbkStyleST}"/>
+                        <TextBlock Grid.Row="43" Grid.Column="1" Text="Número de Documento" Style="{StaticResource ApplicationTbkStyleST}" />
+                        <TextBox x:Name="tipo_doc_acud" Style="{StaticResource ApplicationTbx}" Grid.Row="44"/>
+                        <TextBox x:Name="numero_doc_acud" Style="{StaticResource ApplicationTbx}" Grid.Row="44" Grid.Column="1"/>
+                        <TextBlock Grid.Row="45" Text="Parentesco" Style="{StaticResource ApplicationTbkStyleST}"/>
+                        <TextBlock Grid.Row="45" Grid.Column="1" Text="Teléfono" Style="{StaticResource ApplicationTbkStyleST}" />
+                        <TextBox x:Name="parentesco_acud" Style="{StaticResource ApplicationTbx}" Grid.Row="46"/>
+                        <TextBox x:Name="tel_acud" Style="{StaticResource ApplicationTbx}" Grid.Row="46" Grid.Column="1"/>
+                        <TextBlock Grid.Row="47" Style="{StaticResource ApplicationTbkStyleST}" Text="Correo Electrónico" Grid.ColumnSpan="2"/>
+                        <TextBox x:Name="email_acud" Style="{StaticResource ApplicationTbx}" Grid.Row="48" Grid.ColumnSpan="2"/>
+
+                        <TextBlock Text="Ubicación y Contacto" Style="{StaticResource ApplicationTbkStyleT}" Grid.Row="49" Grid.ColumnSpan="2"/>
+
+                        <TextBlock Grid.Row="50" Style="{StaticResource ApplicationTbkStyleST}" Text="Dirección 1" Grid.ColumnSpan="2"/>
+                        <TextBox x:Name="dir1_con" Style="{StaticResource ApplicationTbx}" Grid.Row="51" Grid.ColumnSpan="2"/>
+                        <TextBlock Grid.Row="52" Style="{StaticResource ApplicationTbkStyleST}" Text="Dirección 2" Grid.ColumnSpan="2"/>
+                        <TextBox x:Name="dir2_con" Style="{StaticResource ApplicationTbx}" Grid.Row="53" Grid.ColumnSpan="2"/>
+                        <TextBlock Grid.Row="54" Text="Teléfono" Style="{StaticResource ApplicationTbkStyleST}"/>
+                        <TextBlock Grid.Row="54" Grid.Column="1" Text="Celular" Style="{StaticResource ApplicationTbkStyleST}" />
+                        <TextBox x:Name="tel_con" Style="{StaticResource ApplicationTbx}" Grid.Row="55"/>
+                        <TextBox x:Name="cel_con" Style="{StaticResource ApplicationTbx}" Grid.Row="55" Grid.Column="1"/>
+                        <TextBlock Grid.Row="56" Style="{StaticResource ApplicationTbkStyleST}" Text="Correo Electrónico" Grid.ColumnSpan="2"/>
+                        <TextBox x:Name="email_con" Style="{StaticResource ApplicationTbx}" Grid.Row="57" Grid.ColumnSpan="2"/>
+                        
+                        <Button Grid.Row="58" x:Name="DenyButton" Click="DenyButton_Click" Margin="15,20">RECHAZAR SOLICITUD</Button>
+                        <Button Grid.Row="58" Grid.Column="1" x:Name="AcceptButton" Click="AcceptButton_Click" Background="{DynamicResource AccentColorBrush}" Margin="15,20">ACEPTAR SOLICITUD</Button>
+                    </Grid>
+                </ScrollViewer>
+            </Border>
+        </Grid>
+    </Grid>
+</Controls:MetroWindow>
